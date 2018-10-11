@@ -14,18 +14,45 @@ import { CustomerDeleteComponent } from './customer-delete/customer-delete.compo
 import { AuthComponent } from './auth/auth.component';
 import { AuthService } from './auth.service';
 import { JwtService } from './jwt.service';
-
+import { AuthGuardService } from './auth-guard.service';
+import { AuthVisibleDirective } from './auth-visible.directive';
 
 const appRoutes: Routes = [
-  { path: 'customers', component: CustomerListComponent },
-  { path: 'customer/details/:id', component: CustomerDetailsComponent },
-  { path: 'customer/add', component: CustomerCreateComponent },
-  { path: 'customer/edit/:id', component: CustomerEditComponent },
-  { path: 'customer/delete/:id', component: CustomerDeleteComponent },
-  { path: 'register', component: AuthComponent },
-  { path: 'login', component: AuthComponent },
-  { path: '', redirectTo: '/customers', pathMatch: 'full' }
+  {
+    path: 'customers',
+    component: CustomerListComponent
+  },
+  {
+    path: 'customer/details/:id',
+    component: CustomerDetailsComponent
+  },
+  {
+    path: 'customer/add', component: CustomerCreateComponent,
+    canActivate: [AuthGuardService]
+  },
+  {
+    path: 'customer/edit/:id', component: CustomerEditComponent,
+    canActivate: [AuthGuardService]
+  },
+  {
+    path: 'customer/delete/:id', component: CustomerDeleteComponent,
+    canActivate: [AuthGuardService]
+  },
+  {
+    path: 'register',
+    component: AuthComponent
+  },
+  {
+    path: 'login',
+    component: AuthComponent
+  },
+  {
+    path: '',
+    redirectTo: '/customers',
+    pathMatch: 'full'
+  }
 ];
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,17 +61,17 @@ const appRoutes: Routes = [
     CustomerDetailsComponent,
     CustomerEditComponent,
     CustomerDeleteComponent,
-    AuthComponent
+    AuthComponent,
+    AuthVisibleDirective
   ],
   imports: [
     BrowserModule,
-    // import HttpClientModule after BrowserModule.
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [CustomerService, AuthService, JwtService],
+  providers: [CustomerService, AuthService, JwtService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 

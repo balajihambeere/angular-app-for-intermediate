@@ -2,9 +2,9 @@
   <a>{{title}}</a>
   <a routerLink="/customers">Home</a>
   <div style="float:right!important">
-    <a routerLink="/register">Register</a>
-    <a routerLink="/login">Login</a>
-    <a routerLink="/logout">LogOut</a>
+    <a [appIsAuthenticated]="false" routerLink="/register">Register</a>
+    <a [appIsAuthenticated]="false" routerLink="/login">Login</a>
+    <a [appIsAuthenticated]="true" routerLink="/logout">LogOut</a>
   </div>
 </div>
 
