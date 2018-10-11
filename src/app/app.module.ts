@@ -14,7 +14,7 @@ import { CustomerDeleteComponent } from './customer-delete/customer-delete.compo
 import { AuthComponent } from './auth/auth.component';
 import { AuthService } from './auth.service';
 import { JwtService } from './jwt.service';
-import { AuthGuardService } from './auth-guard.service';
+import { AuthGuard } from './auth-guard';
 import { AuthVisibleDirective } from './auth-visible.directive';
 
 const appRoutes: Routes = [
@@ -28,15 +28,15 @@ const appRoutes: Routes = [
   },
   {
     path: 'customer/add', component: CustomerCreateComponent,
-    canActivate: [AuthGuardService]
+    canActivate: [AuthGuard]
   },
   {
     path: 'customer/edit/:id', component: CustomerEditComponent,
-    canActivate: [AuthGuardService]
+    canActivate: [AuthGuard]
   },
   {
     path: 'customer/delete/:id', component: CustomerDeleteComponent,
-    canActivate: [AuthGuardService]
+    canActivate: [AuthGuard]
   },
   {
     path: 'register',
@@ -71,7 +71,7 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [CustomerService, AuthService, JwtService, AuthGuardService],
+  providers: [CustomerService, AuthService, JwtService, AuthGuard],
   bootstrap: [AppComponent]
 })
 

@@ -12,6 +12,9 @@ export class AuthVisibleDirective implements OnInit {
 
     condition: boolean;
 
+    @Input() set appIsAuthenticated(condition: boolean) {
+        this.condition = condition;
+    }
     ngOnInit() {
         this.authService.isAuthenticated.subscribe(
             (isAuthenticated) => {
@@ -23,8 +26,5 @@ export class AuthVisibleDirective implements OnInit {
                 }
             }
         );
-    }
-    @Input('appIsAuthenticated') set showIfAuthenticated(condition: boolean) {
-        this.condition = condition;
     }
 }
