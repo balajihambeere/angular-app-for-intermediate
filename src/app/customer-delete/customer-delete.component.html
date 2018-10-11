@@ -1,0 +1,14 @@
+<h2>You want to delete this Customer
+    <input type="button" value="NO" (click)="goBack()">
+    <input type="button" value="YES" style="margin-left:5px;" (click)="delete(customer._id)">
+</h2>
+<h2 *ngIf="message" style="color:green">{{message}}
+    <input type="button" value="OK" (click)="goBack()">
+</h2>
+<hr>
+<dl *ngIf="!message">
+    <dt>First Name : {{customer.firstName}}</dt>
+    <dt>Last Name : {{customer.lastName}}</dt>
+    <dt>PhoneNumber : {{customer.phone}}</dt>
+    <dt>Email Address: {{customer.email}}</dt>
+</dl>

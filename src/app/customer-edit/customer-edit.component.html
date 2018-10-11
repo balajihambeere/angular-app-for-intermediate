@@ -1,0 +1,18 @@
+<h2>Edit Customer</h2>
+<hr/>
+
+<form>
+    First Name:<br>
+    <input type="text" [(ngModel)]="customer.firstName" name="firstName" class="inputWidht">
+    <br> Last Name:<br>
+    <input type="text" [(ngModel)]="customer.lastName" name="lastName" class="inputWidht">
+    <br> Phone Number:<br>
+    <input type="text" [(ngModel)]="customer.phone" name="phone" class="inputWidht">
+    <br> Email Address:<br>
+    <input type="text" [(ngModel)]="customer.email" name="email" class="inputWidht">
+    <br><br>
+    <input type="button" value="Cancel" (click)="goBack()">
+
+    <input type="submit" style="margin-left:5px;" (click)="submit()">
+    <h2 *ngIf="message" style="color:green">{{message}}</h2>
+</form>
