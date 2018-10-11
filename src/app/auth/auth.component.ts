@@ -19,7 +19,7 @@ export class AuthComponent implements OnInit {
         private fb: FormBuilder,
         private authService: AuthService) {
         this.authForm = this.fb.group({
-            'userName': [''],
+            'username': [''],
             'password': ['']
         });
     }
@@ -42,7 +42,7 @@ export class AuthComponent implements OnInit {
             if (this.authType === 'register') {
                 this.router.navigateByUrl('login');
             } else {
-                this.router.navigateByUrl('/');
+                this.router.navigateByUrl('/customers');
             }
         });
     }
