@@ -16,6 +16,8 @@ import { AuthService } from './auth.service';
 import { JwtService } from './jwt.service';
 import { AuthGuard } from './auth-guard';
 import { AuthVisibleDirective } from './auth-visible.directive';
+import { httpInterceptorProviders } from './interceptors';
+
 
 const appRoutes: Routes = [
   {
@@ -71,7 +73,9 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [CustomerService, AuthService, JwtService, AuthGuard],
+  providers: [
+    httpInterceptorProviders,
+    CustomerService, AuthService, JwtService, AuthGuard],
   bootstrap: [AppComponent]
 })
 
