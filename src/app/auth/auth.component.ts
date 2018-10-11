@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 
@@ -19,8 +19,8 @@ export class AuthComponent implements OnInit {
         private fb: FormBuilder,
         private authService: AuthService) {
         this.authForm = this.fb.group({
-            'userName': ['', Validators.required],
-            'password': ['', Validators.required]
+            'userName': [''],
+            'password': ['']
         });
     }
 
@@ -30,12 +30,10 @@ export class AuthComponent implements OnInit {
             this.title = (this.authType === 'login') ? 'Please login here..' : 'Create a new account';
             this.buttonTitle = (this.authType === 'login') ? 'Login' : 'Create Account';
             if (this.authType === 'register') {
-                this.authForm.addControl('confirmPassword', new FormControl('', Validators.required));
+                this.authForm.addControl('confirmPassword', new FormControl(''));
             }
         });
     }
-
-
 
     submitForm() {
         this.isSubmitting = true;

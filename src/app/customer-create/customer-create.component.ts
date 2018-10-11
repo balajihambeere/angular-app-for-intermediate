@@ -1,12 +1,11 @@
-import { Component, OnInit } from "@angular/core";
-import { CustomerService } from "../customer.service";
-import { Customer } from "../customer.model";
-import { Router } from "@angular/router";
+import { Component, OnInit } from '@angular/core';
+import { CustomerService } from '../customer.service';
+import { Customer } from '../customer.model';
+import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 @Component({
-    selector: 'customer-create',
+    selector: 'app-customer-create',
     templateUrl: './customer-create.component.html',
-    styleUrls: ['./customer-create.component.css']
 })
 
 export class CustomerCreateComponent {
@@ -19,9 +18,9 @@ export class CustomerCreateComponent {
     }
     submit() {
         this.customerService.addCustomer(this.customer).subscribe((data) => {
-            this.message = "Customer Added Successfully";
+            this.message = 'Customer Added Successfully';
             setTimeout(() => {
-                this.router.navigate(['/customers'])
+                this.router.navigate(['/customers']);
             }, 1000);
         });
     }
