@@ -1,0 +1,38 @@
+<div class="w3-container" style="margin-top: 50px;">
+    <form class="w3-card" [formGroup]="authForm" (ngSubmit)="submitForm()">
+        <header class="w3-container w3-purple">
+            <h3>{{title}}</h3>
+        </header>
+        <div class="w3-container">
+            <p>
+                <label>Phone Number *</label>
+                <input class="w3-input w3-animate-input" formControlName="userName" type="text" style="width:150px">
+                <br>
+            </p>
+            <p>
+                <label>Password *</label>
+                <input class="w3-input w3-animate-input" formControlName="password" type="password" style="width:150px">
+                <br>
+            </p>
+            <p *ngIf="authType == 'register'">
+                <label>Confirm Password *</label>
+                <input class="w3-input w3-animate-input" formControlName="confirmPassword" type="password" style="width:170px">
+                <br>
+            </p>
+            <button type="submit" [disabled]="!authForm.valid" style="width: 100%" class="w3-btn w3-purple"> {{
+                buttonTitle }}</button>
+        </div>
+
+        <footer class="w3-container">
+            <div *ngIf="authType == 'register'" class="w3-margin-top w3-right">
+                Already have an account?
+                <a routerLink="/login" routerLinkActive="active" class="w3-btn w3-purple w3-margin-bottom">
+                    LogIn
+                </a>
+            </div>
+            <div class="w3-margin-top" *ngIf="authType == 'login'">
+                <a routerLink="/register" routerLinkActive="active" class="w3-btn w3-purple  w3-margin-bottom w3-left">Register</a>
+            </div>
+        </footer>
+    </form>
+</div>
