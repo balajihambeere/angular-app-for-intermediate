@@ -3,7 +3,7 @@ import { AuthService } from './auth.service';
 
 @Directive({ selector: '[appIsAuthenticated]' })
 
-export class AuthVisibleDirective implements OnInit {
+export class IsAuthenticatedDirective implements OnInit {
     constructor(
         private templateRef: TemplateRef<any>,
         private authService: AuthService,

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
-import { User } from './auth.model';
+import { HttpClient } from '@angular/common/http';
+import { User } from './user.model';
 import { Observable, BehaviorSubject, ReplaySubject } from 'rxjs';
 import { map, distinctUntilChanged } from 'rxjs/operators';
 import { JwtService } from './jwt.service';

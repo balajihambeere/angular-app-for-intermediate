@@ -15,7 +15,7 @@ import { AuthComponent } from './auth/auth.component';
 import { AuthService } from './auth.service';
 import { JwtService } from './jwt.service';
 import { AuthGuard } from './auth-guard';
-import { AuthVisibleDirective } from './auth-visible.directive';
+import { IsAuthenticatedDirective } from './is-authenticated.directive';
 import { httpInterceptorProviders } from './interceptors';
 
 
@@ -64,7 +64,7 @@ const appRoutes: Routes = [
     CustomerEditComponent,
     CustomerDeleteComponent,
     AuthComponent,
-    AuthVisibleDirective
+    IsAuthenticatedDirective
   ],
   imports: [
     BrowserModule,

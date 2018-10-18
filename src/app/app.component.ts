@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
-    this.authService.populate();
+     this.authService.populate();
   }
 
   logout() {
