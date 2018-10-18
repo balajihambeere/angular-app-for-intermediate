@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
+import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 
@@ -19,8 +19,8 @@ export class AuthComponent implements OnInit {
         private fb: FormBuilder,
         private authService: AuthService) {
         this.authForm = this.fb.group({
-            'username': [''],
-            'password': ['']
+            'username': ['', Validators.compose([Validators.required, Validators.email])],
+            'password': ['', Validators.required]
         });
     }
 

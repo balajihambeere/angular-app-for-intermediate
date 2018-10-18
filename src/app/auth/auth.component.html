@@ -1,14 +1,12 @@
 <form [formGroup]="authForm" (ngSubmit)="submitForm()">
     <h3>{{title}}</h3>
     <label>User Name: </label>
-    <input formControlName="username" type="text" class="inputWidth">
+    <input formControlName="username" type="email" class="inputWidth">
     <br>
     <label>Password:</label>
     <input formControlName="password" type="password" class="inputWidth">
     <br>
-
     <button type="submit" [disabled]="!authForm.valid"> {{buttonTitle }}</button>
-
     <footer>
         <div *ngIf="authType == 'register'">
             Already have an account?

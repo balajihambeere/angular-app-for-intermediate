@@ -18,6 +18,8 @@ import { Location } from '@angular/common';
 export class CustomerEditComponent implements OnInit {
     customer = new Customer();
     message: string;
+    submitted = false;
+
     constructor(private customerService: CustomerService,
         private router: Router,
         private route: ActivatedRoute,
@@ -30,16 +32,20 @@ export class CustomerEditComponent implements OnInit {
             this.customer = data;
         });
     }
-    submit() {
-        this.customerService.updateCustomer(this.customer).subscribe((data) => {
-            this.message = 'Customer Updated Successfully';
-            setTimeout(() => {
+    submit(valid) {
+        if (valid) {
+            this.submitted = true;
+            this.customerService.updateCustomer(this.customer).subscribe((data) => {
+                this.message = 'Customer Updated Successfully';
+                setTimeout(() => {
 
-                this.router.navigate(['/customers']);
-            }, 500);
-        });
+                    this.router.navigate(['/customers']);
+                }, 500);
+            });
+        } else {
+            this.submitted = false;
+        }
     }
-
     goBack(): void {
         this.location.back();
     }

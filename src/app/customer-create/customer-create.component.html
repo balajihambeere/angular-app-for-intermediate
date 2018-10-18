@@ -1,19 +1,32 @@
 <h2>Create New Customer</h2>
-
 <hr />
 
-<form>
+<form (ngSubmit)="submit(customerForm.valid)" #customerForm="ngForm">
     First Name:<br>
-    <input type="text" [(ngModel)]="customer.firstName" name="firstName" class="inputWidth">
+    <input type="text" [(ngModel)]="customer.firstName" name="firstName" class="inputWidth" required #firstName="ngModel">
+    <div [hidden]="firstName.valid || (firstName.pristine && !customerForm.submitted)">
+        <span style="color:red">First Name is required</span>
+    </div>
+
     <br> Last Name:<br>
-    <input type="text" [(ngModel)]="customer.lastName" name="lastName" class="inputWidth">
+    <input type="text" [(ngModel)]="customer.lastName" name="lastName" class="inputWidth" required #lastName="ngModel">
+    <div [hidden]="lastName.valid || (lastName.pristine && !customerForm.submitted)">
+        <span style="color:red">Last Name is required</span>
+    </div>
+
     <br> Phone Number:<br>
-    <input type="text" [(ngModel)]="customer.phone" name="phone" class="inputWidth">
+    <input type="text" [(ngModel)]="customer.phone" name="phone" class="inputWidth" required #phone="ngModel">
+    <div [hidden]="phone.valid || (phone.pristine && !customerForm.submitted)">
+        <span style="color:red">Phone Number is required</span>
+    </div>
+
     <br> Email Address:<br>
-    <input type="text" [(ngModel)]="customer.email" name="email" class="inputWidth">
+    <input type="email" [(ngModel)]="customer.email" name="email" class="inputWidth" required minlength="4" email #email="ngModel">
+    <div [hidden]="email.valid || (email.pristine && !customerForm.submitted)">
+        <span style="color:red">Should be a email</span>
+    </div>
     <br><br>
     <input type="button" value="Cancel" (click)="goBack()">
-
-    <input type="submit" style="margin-left: 5px" (click)="submit()">
+    <input type="submit" style="margin-left: 5px">
     <h2 *ngIf="message" style="color:green">{{message}}</h2>
 </form>

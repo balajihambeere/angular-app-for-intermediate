@@ -18,19 +18,28 @@ import { Location } from '@angular/common';
 export class CustomerCreateComponent {
     customer = new Customer();
     message: string;
+    submitted = false;
 
     constructor(private customerService: CustomerService,
         private router: Router,
         private location: Location) {
 
     }
-    submit() {
-        this.customerService.addCustomer(this.customer).subscribe((data) => {
-            this.message = 'Customer Added Successfully';
-            setTimeout(() => {
-                this.router.navigate(['/customers']);
-            }, 1000);
-        });
+
+
+
+    submit(valid) {
+        if (valid) {
+            this.submitted = true;
+            this.customerService.addCustomer(this.customer).subscribe((data) => {
+                this.message = 'Customer Added Successfully';
+                setTimeout(() => {
+                    this.router.navigate(['/customers']);
+                }, 1000);
+            });
+        } else {
+            this.submitted = false;
+        }
     }
 
     goBack(): void {
