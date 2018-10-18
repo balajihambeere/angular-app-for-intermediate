@@ -1,10 +1,11 @@
-import { Component, OnInit } from "@angular/core";
-import { CustomerService } from "../customer.service";
-import { Customer } from "../customer.model";
-import { ActivatedRoute } from "@angular/router";
+import { Component, OnInit } from '@angular/core';
+import { CustomerService } from '../customer.service';
+import { Customer } from '../customer.model';
+import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
+
 @Component({
-    selector: 'customer-details',
+    selector: 'app-customer-details',
     templateUrl: './customer-details.component.html',
 
 })
@@ -26,5 +27,5 @@ export class CustomerDetailsComponent implements OnInit {
     goBack(): void {
         this.location.back();
       }
-    
+
 }

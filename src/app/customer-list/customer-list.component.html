@@ -12,12 +12,12 @@
     <tr *ngFor="let customer of customers">
         <td>{{customer.firstName}}</td>
         <td>{{customer.lastName}}</td>
-        <td>{{customer.phoneNumber}}</td>
-        <td>{{customer.emailAddress}}</td>
+        <td>{{customer.phone}}</td>
+        <td>{{customer.email}}</td>
         <td>
             <a routerLink="/customer/details/{{customer._id}}">View</a> |
-            <a routerLink="/customer/edit/{{customer._id}}">Edit</a> |
-            <a routerLink="/customer/delete/{{customer._id}}">Delete</a>
+            <a *appIsAuthenticated="false" routerLink="/customer/edit/{{customer._id}}">Edit</a> |
+            <a *appIsAuthenticated="false" routerLink="/customer/delete/{{customer._id}}">Delete</a>
         </td>
     </tr>
 </table>

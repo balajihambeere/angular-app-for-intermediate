@@ -1,11 +1,11 @@
-import { Component, OnInit } from "@angular/core";
-import { CustomerService } from "../customer.service";
-import { Customer } from "../customer.model";
-import { ActivatedRoute, Router } from "@angular/router";
+import { Component, OnInit } from '@angular/core';
+import { CustomerService } from '../customer.service';
+import { Customer } from '../customer.model';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 
 @Component({
-    selector: 'customer-delete',
+    selector: 'app-customer-delete',
     templateUrl: './customer-delete.component.html'
 })
 export class CustomerDeleteComponent implements OnInit {
@@ -26,7 +26,7 @@ export class CustomerDeleteComponent implements OnInit {
 
     delete(id: string) {
         this.customerService.deleteCustomer(id).subscribe((data) => {
-            this.message = "customer delete successfully";
+            this.message = 'customer delete successfully';
         });
     }
 

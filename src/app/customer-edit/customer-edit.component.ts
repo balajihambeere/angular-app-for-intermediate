@@ -6,7 +6,13 @@ import { Location } from '@angular/common';
 
 @Component({
     selector: 'app-customer-edit',
-    templateUrl: './customer-edit.component.html'
+    templateUrl: './customer-edit.component.html',
+    styles: [`
+    .inputWidth {
+        line-height: 2em;
+        width:20em;
+        margin-bottom: 1em;
+    }`]
 })
 
 export class CustomerEditComponent implements OnInit {
@@ -37,5 +43,4 @@ export class CustomerEditComponent implements OnInit {
     goBack(): void {
         this.location.back();
     }
-
 }
