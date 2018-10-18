@@ -1,4 +1,4 @@
-<a routerLink="/customer/add" style="margin-left:10px;">
+<a *appIsAuthenticated="true" routerLink="/customer/add" style="margin-left:10px;">
     ADD NEW</a>
 <hr>
 <table>
@@ -16,8 +16,8 @@
         <td>{{customer.email}}</td>
         <td>
             <a routerLink="/customer/details/{{customer._id}}">View</a> |
-            <a *appIsAuthenticated="false" routerLink="/customer/edit/{{customer._id}}">Edit</a> |
-            <a *appIsAuthenticated="false" routerLink="/customer/delete/{{customer._id}}">Delete</a>
+            <a *appIsAuthenticated="true" routerLink="/customer/edit/{{customer._id}}">Edit</a> |
+            <a *appIsAuthenticated="true" routerLink="/customer/delete/{{customer._id}}">Delete</a>
         </td>
     </tr>
 </table>
