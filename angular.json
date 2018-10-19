@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "AngularCRUDApp": {
+    "angularcrudapp": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -50,18 +50,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "AngularCRUDApp:build"
+            "browserTarget": "angularcrudapp:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "AngularCRUDApp:build:production"
+              "browserTarget": "angularcrudapp:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "AngularCRUDApp:build"
+            "browserTarget": "angularcrudapp:build"
           }
         },
         "test": {
@@ -95,7 +95,7 @@
         }
       }
     },
-    "AngularCRUDApp-e2e": {
+    "angularcrudapp-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -103,11 +103,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "AngularCRUDApp:serve"
+            "devServerTarget": "angularcrudapp:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "AngularCRUDApp:serve:production"
+              "devServerTarget": "angularcrudapp:serve:production"
             }
           }
         },
@@ -123,5 +123,5 @@
       }
     }
   },
-  "defaultProject": "AngularCRUDApp"
+  "defaultProject": "angularcrudapp"
 }
